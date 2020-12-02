@@ -94,6 +94,7 @@ namespace WebApplication3.Controllers
             }
             _db.ToDos.Remove(item);
             _db.SaveChanges();
-            return new ObjectResult(item);        }
+            return new ObjectResult(item);       
+        }
     }
 }
