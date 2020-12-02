@@ -82,5 +82,18 @@ namespace WebApplication3.Controllers
             }
             return Ok(item);
         }
+
+        [HttpDelete]
+        [Route("Delete")]
+        public IActionResult Delete(long Id)
+        {
+            var item = _db.ToDos.Where(testc => testc.Id == Id).FirstOrDefault();
+            if (item == null)
+            {
+                return NotFound();
+            }
+            _db.ToDos.Remove(item);
+            _db.SaveChanges();
+            return new ObjectResult(item);        }
     }
 }

@@ -27,7 +27,9 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoContext>(options => options.UseSqlite(Configuration.GetConnectionString("ToDoConnection")));
+            //services.AddDbContext<ToDoContext>(options => options.UseSqlite(Configuration.GetConnectionString("ToDoConnection")));
+            services.AddDbContext<ToDoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ToDoConnection")));
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
